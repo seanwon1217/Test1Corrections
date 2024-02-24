@@ -28,10 +28,9 @@ def create_protein_dict(proteins):
 
 def combine_protein_counts(counts_1, counts_2):
     combined_counts = {}
-    all_keys = list(counts_1.keys())
-    more_keys = list(counts_2.keys())
-    all_keys.append(more_keys)
-    for key in all_keys:
+    keys_1 = set(counts_1.keys())
+    keys_2 = set(counts_2.keys())
+    for key in keys_1 or keys_2:
         combined_counts[key] = (counts_1.get(key,0), counts_2.get(key, 0))
     return combined_counts
 
